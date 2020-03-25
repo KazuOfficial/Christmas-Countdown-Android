@@ -1,10 +1,14 @@
 package com.example.christmascountdown
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_fullscreen.*
+import java.util.Date
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -45,6 +49,9 @@ class FullscreenActivity : AppCompatActivity() {
         false
     }
 
+    var dateFormat: DateFormat = SimpleDateFormat("yyyy/MM/dd HH:mm:ss")
+    var dt: Date = Date()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -54,6 +61,8 @@ class FullscreenActivity : AppCompatActivity() {
 
         // Set up the user interaction to manually show or hide the system UI.
         fullscreen_content.setOnClickListener { toggle() }
+
+        textView.setText(dateFormat.format(dt))
 
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
