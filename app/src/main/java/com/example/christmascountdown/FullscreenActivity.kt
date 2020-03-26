@@ -1,13 +1,13 @@
 package com.example.christmascountdown
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_fullscreen.*
-import java.util.Date
-import java.text.DateFormat
-import java.text.SimpleDateFormat
+import java.util.*
+import java.util.concurrent.TimeUnit
 
 
 /**
@@ -49,8 +49,8 @@ class FullscreenActivity : AppCompatActivity() {
         false
     }
 
-    var dateFormat: DateFormat = SimpleDateFormat("yyyy/MM/dd HH:mm:ss")
     var dt: Date = Date()
+    var dt2: Date = Date(dt.year, 11, 25)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,7 +62,9 @@ class FullscreenActivity : AppCompatActivity() {
         // Set up the user interaction to manually show or hide the system UI.
         fullscreen_content.setOnClickListener { toggle() }
 
-        textView.setText(dateFormat.format(dt))
+        textView.setText(getDifferenceDays(dt, dt2).toString())
+
+        imageView.animate().alpha(1f).setDuration(10000)
 
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
@@ -116,6 +118,11 @@ class FullscreenActivity : AppCompatActivity() {
     private fun delayedHide(delayMillis: Int) {
         mHideHandler.removeCallbacks(mHideRunnable)
         mHideHandler.postDelayed(mHideRunnable, delayMillis.toLong())
+    }
+
+    fun getDifferenceDays(d1: Date, d2: Date): Long {
+        val diff = d2.time - d1.time
+        return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS)
     }
 
     companion object {

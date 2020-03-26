@@ -39,6 +39,7 @@
         android:layout_height="360dp"
         android:layout_gravity="center"
         android:layout_marginBottom="90dp"
+        android:alpha="0.7"
         app:srcCompat="@drawable/unnamed" />
 
     <TextView
@@ -46,9 +47,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="160dp"
+        android:background="#00FFFFFF"
+        android:fontFamily="sans-serif-light"
+        android:shadowColor="#000000"
+        android:shadowDx="1.0"
+        android:shadowDy="1.0"
+        android:shadowRadius="2.0"
         android:text="TextView"
-        android:textColor="@color/colorAccent"
-        android:textSize="25dp" />
+        android:textColor="#FFFFFF"
+        android:textSize="35dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="120dp"
+        android:fontFamily="sans-serif-light"
+        android:shadowColor="#000000"
+        android:shadowDx="1.0"
+        android:shadowDy="1.0"
+        android:shadowRadius="2.0"
+        android:text="Days until christmas"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp" />
 
 </FrameLayout>
