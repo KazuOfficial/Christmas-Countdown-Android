@@ -5,4 +5,4 @@ android:
   - build-tools-26.0.2
   - android-29
 script:
-  - gradle build connectedCheck
+  - gradle build
